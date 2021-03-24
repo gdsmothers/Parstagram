@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         if PFUser.current() != nil {
             let main = UIStoryboard(name: "Main", bundle:nil)
-            let feedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController")
+            let feedNavigationController = main.instantiateViewController(identifier: "FeedNavigationController")
 
             window?.rootViewController = feedNavigationController
         }

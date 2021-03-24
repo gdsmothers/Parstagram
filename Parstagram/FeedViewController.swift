@@ -12,9 +12,10 @@ import MessageInputBar
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MessageInputBarDelegate {
     @IBOutlet var tableView: UITableView!
+
     let commentBar = MessageInputBar()
-    var showsCommentBar = false
     var posts = [PFObject]()
+    var showsCommentBar = false
     var selectedPost: PFObject!
     
     override func viewDidLoad() {
@@ -68,7 +69,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         comment["post"] = selectedPost
         comment["author"] = PFUser.current()!
 
-        selectedPost.add(comment, forKey: "comments")
+        selectedPost.addUniqueObject(comment, forKey: "comments")
         selectedPost.saveInBackground{ (success, Error) in
             if success {
                  print("Comment saved")
@@ -107,13 +108,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             let user = post["author"] as! PFUser
 
             cell.usernameLabel.text = user.username
-            cell.captionLabel.text = post["caption"] as! String
+            cell.captionLabel.text = post["caption"] as? String
 
             let imageFile = post["image"] as! PFFileObject
             let urlString = imageFile.url!
             let url = URL(string: urlString)!
 
-            cell.photoView.af_setImage(withURL: url)
+            cell.photoView.af.setImage(withURL: url)
 
             return cell
         } else if indexPath.section <= comments.count {
@@ -155,7 +156,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func onLogoutButton(_ sender: Any) {
         PFUser.logOut()
         let main = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+        let loginViewController = main.instantiateViewController(identifier: "LoginViewController")
 
         let delegate = self.view.window?.windowScene?.delegate as! SceneDelegate
         delegate.window?.rootViewController = loginViewController
