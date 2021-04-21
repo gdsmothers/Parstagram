@@ -49,4 +49,4 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='ezgif.com-video-to-gif-2.gif' />
+<img src='https://github.com/gdsmothers/Parstagram/blob/main/ezgif.com-video-to-gif-2.gif' />
