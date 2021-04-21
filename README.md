@@ -22,7 +22,7 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/wh9MdN8YGo.gif' />
+<img src='ezgif.com-video-to-gif.gif' />
 
 # Parstagram - Part I
 
@@ -49,4 +49,4 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/AXjCPMjwen.gif' />
+<img src='ezgif.com-video-to-gif-2.gif' />
